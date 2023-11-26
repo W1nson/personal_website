@@ -1,0 +1,35 @@
+[
+    {
+        "title": "Aerial Vision-and-Dialog Navigation (AVDN)", 
+        "authors": "Yue Fan, Winson Chen, Tongzhou Jiang, Chun Zhou, Yi Zhang, Xin Eric Wang",
+        "publisher": "ACL Findings 2023", 
+        "conference": "ACL",
+        "link": "https://sites.google.com/view/aerial-vision-and-dialog/home",
+        "image": "/AVDN.png",
+        "abstract": "The ability to converse with humans and follow natural language commands is crucial for intelligent unmanned aerial vehicles (a.k.a. drones). It can relieve people's burden of holding a controller all the time, allow multitasking, and make drone control more accessible for people with disabilities or with their hands occupied. To this end, we introduce Aerial Vision-and-Dialog Navigation (AVDN), to navigate a drone via natural language conversation. We build a drone simulator with a continuous photorealistic environment and collect a new AVDN dataset of over 3k recorded navigation trajectories with asynchronous human-human dialogs between commanders and followers. The commander provides initial navigation instruction and further guidance by request, while the follower navigates the drone in the simulator and asks questions when needed. During data collection, followers' attention on the drone's visual observation is also recorded. Based on the AVDN dataset, we study the tasks of aerial navigation from (full) dialog history and propose an effective Human Attention Aided Transformer model (HAA-Transformer), which learns to predict both navigation waypoints and human attention."
+    }, 
+    {
+        "title": "Early Experience with Transformer-Based Similarity Analysis for DataRaceBench", 
+        "authors": "Winson Chen, Tristan Vanderbruggen, Pei-Hung Lin, Chunhua Liao, Murali Emani",
+        "publisher": "IEEE", 
+        "conference": "2022 IEEE/ACM Sixth International Workshop on Software Correctness for HPC Applications (Correctness)",
+        "link": "https://ieeexplore.ieee.org/abstract/document/10027519",
+        "abstract": "DataRaceBench (DRB) is a dedicated benchmark suite to evaluate tools aimed to find data race bugs in OpenMP programs. Using microbenchmarks with or without data races, DRB is able to generate standard quality metrics and provide systematic and quantitative assessments of data race detection tools. However, as the number of microbenchmarks grows, it is challenging to manually identify similar code patterns for DRB, within the context of identifying duplicated kernels or guiding the additions of new kernels. In this paper, we experiment with a transformer-based, deep learning approach to similarity analysis. A state-of-the-art transformer model, CodeBERT, has been adapted to find similar OpenMP code regions. We explore the challenges and the solutions when applying transformer-based similarity analysis to new source codes which are unseen by pre-trained transformers. Using comparative experiments of different variants of similarity analysis, we comment on the strengths and limitations of the transformer-based approach and point out future research directions."
+    },
+    {
+        "title": "Making Machine Learning Datasets and Models FAIR for HPC: A Methodology and Case Study", 
+        "authors": "Pei-Hung Lin, Chunhua Liao, Winson Chen, Tristan Vanderbruggen, Murali Emani, Hailu Xu",
+        "publisher": "IEEE", 
+        "conference": "2022 Fourth International Conference on Transdisciplinary AI (TransAI)",
+        "link": "https://ieeexplore.ieee.org/abstract/document/9951530",
+        "abstract": "The FAIR Guiding Principles aim to improve the findability, accessibility, interoperability, and reusability of digital content by making them both human and machine actionable. However, these principles have not yet been broadly adopted in the domain of machine learning-based program analyses and optimizations for High-Performance Computing (HPC). In this paper, we design a methodology to make HPC datasets and machine learning models FAIR after investigating existing FAIRness assessment and improvement techniques. Our methodology includes a comprehensive, quantitative assessment for elected data, followed by concrete, actionable suggestions to improve FAIRness with respect to common issues related to persistent identifiers, rich metadata descriptions, license and provenance information. Moreover, we select a representative training dataset to evaluate our methodology. The experiment shows the methodology can effectively improve the dataset and model’s FAIRness from an initial score of 19.1% to the final score of 83.0%."
+    },
+    {
+        "title": "Athena 3.0: Personalized Multimodal ChatBot with Neuro-Symbolic Dialogue Generators", 
+        "authors": "Yue Fan, Kevin K Bowden, Wen Cui, Winson Chen, Vrindavan Harrison, Angela Ramirez, Saaket Agashe, Xinyue Gabby Liu, Neha Pullabhotla, NQJ Bheemanpally, S Garg, M Walker, Xin Eric Wang",
+        "publisher": "Alexa Prize SocialBot Grand Challenge", 
+        "conference": "",
+        "link": "https://assets.amazon.science/2c/ff/d6eb3f0148b8bf0b2fc446c1d5f8/athena-3.0%20Personalized%20Multimodal%20ChatBot%20with%20Neuro-Symbolic%20Dialogue%20Generators.pdf",
+        "abstract": "The burgeoning prominence of conversational agents is evident, given the significant number of people interacting with them on a daily basis. The utility of these agents isn’t confined to functioning as personal assistants; they fulfill a variety of objectives. Some of them are task-centric, for instance, facilitating customer support for financial institutions or assisting in reservation processes. Conversely, certain agents are programmed to embody empathy, thereby fostering an emotional rapport with the users. The aim of the Alexa Prize Socialbot Grand Challenge (SGC) is the creation of a socialbot that facilitates engaging, coherent dialogues on a wide array of trending topics appealing to users. In addition to operating as a spoken chat agent, Athena 3.0 offers multimodal interactivity through screen usage. In this technical report, we describe Athena 3.0. Athena 3.0 advances upon its predecessor, Athena 2.0, by supporting multimodal conversation and substantiating a neuro-symbolic experience by fusing LLM-based generators with existing conversation strategies."
+    }
+]

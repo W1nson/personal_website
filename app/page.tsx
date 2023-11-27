@@ -1,11 +1,12 @@
 
 
-export default function Home() {
-  return (
-    <main>
-      <div> 
-        <p>Hello World</p>
-      </div>
-    </main>
-  );
+// talk about news, table of content, smaller about me, fun stuff 
+export default function Page() { 
+	
+
+
+
+	return (
+		<h1>Home</h1>
+	);
 }

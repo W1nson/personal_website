@@ -1,7 +1,14 @@
+'use server'
+
 import Link from 'next/link'; 
 import Image from 'next/image'; 
+import { Publication } from '@/app/lib/definitions';
 
-export default function Publication({ data }) {
+type Props {
+    data: Publication
+}
+
+export default async function Publications({ data, ...rest }: ) {
     //     {/* Conference, publisher */}
     //     {/* authers */}
     //     {/* additional links */}

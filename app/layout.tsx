@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import NavLinks from '@/app/ui/navlinks'; 
 import NavBar from '@/app/ui/navbar';
+import SideBar from '@/app/ui/sidebar'; 
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,10 +20,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <NavBar/> 
-        <div className='flex flex-col'>
+
+        <div className="relative flex flex-col">
+          <div className="sticky top-0 flex w-screen flex-row">
+            <NavBar/> 
+          </div> 
+          <div className='flex flex-row'>
+            <div>
+              <SideBar/>
+            </div>
+            <div className='p-8'>
               {children}
             </div>
+          </div>
+        </div>      
       </body>
     </html>
   )

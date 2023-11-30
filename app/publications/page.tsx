@@ -15,7 +15,7 @@ export default async function Page() {
             <Link 
                 key={data.title}
                 href={data.link}
-                className="flex h-[50px] text-lg items-center justify-center hover:underline">
+                className="flex h-[50px] text-xl items-center justify-left hover:underline">
                 {/* title with link */}
                     <em>{data.title}</em>
             </Link>

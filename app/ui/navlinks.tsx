@@ -10,6 +10,7 @@ const links = [
   { name: 'Winson', href: '/', image: ''},
   { name: 'About Me', href: '/aboutme'},
   { name: 'Publications', href: '/publications',},
+  { name: 'CV', href: '/CV'},
   { name: 'Tutoring', href: '/tutoring'},
 ];
 

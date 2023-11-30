@@ -25,11 +25,11 @@ export default function RootLayout({
           <div className="sticky top-0 flex w-screen flex-row">
             <NavBar/> 
           </div> 
-          <div className='grid grid-cols-7 gap-4'>
-            <div className='col-span-1'>
+          <div className='grid grid-cols-7 gap-4 h-screen'>
+            <div className='col-span-1 '>
               <SideBar/>
             </div>
-            <div className='col-span-6 pt-8'>
+            <div className='col-span-6 pt-5'>
               {children}
             </div>
           </div>

@@ -11,36 +11,36 @@ export default async function Page() {
         <>
             {datas.map((data: Publication) => {
             return (
-                <div className='flex flex-col p-8'>
-            <Link 
-                key={data.title}
-                href={data.link}
-                className="flex h-[50px] text-xl items-center justify-left hover:underline">
-                {/* title with link */}
-                    <em>{data.title}</em>
-            </Link>
-            <div className='flex flex-row'>
-                <div className='w-2/3'>
-                    <div className='py-1'>
-                        <span>Conference: {data.conference}</span>
+                <div key={data.title}className='flex flex-col p-8'>
+                    <Link 
+                        key={data.title}
+                        href={data.link}
+                        className="flex h-[50px] text-xl items-center justify-left hover:underline">
+                        {/* title with link */}
+                            <em>{data.title}</em>
+                    </Link>
+                    <div className='flex flex-row'>
+                        <div className='w-2/3'>
+                            <div className='py-1'>
+                                <span>Conference: {data.conference}</span>
+                            </div>
+                            <div className='py-1'>
+                                <span>Publisher: {data.publisher}</span>        
+                            </div>
+                            <div className='py-1'>
+                                <span>Authors: {data.authors}</span>
+                            </div>
+                            <div className='py-1'>
+                                <span>Abstract: {data.abstract}</span>
+                            </div>
+                        </div>
+                        <Image src={data.image} className="w-1/3 rounded" width={713} height={641} alt="temperary"/>
                     </div>
-                    <div className='py-1'>
-                        <span>Publisher: {data.publisher}</span>        
-                    </div>
-                    <div className='py-1'>
-                        <span>Authors: {data.authors}</span>
-                    </div>
-                    <div className='py-1'>
-                        <span>Abstract: {data.abstract}</span>
-                    </div>
-                </div>
-                <Image src={data.image} className="w-1/3 rounded" width={713} height={641} alt="temperary"/>
-            </div>
-            
+                    
 
-        </div>
-            );
-        })}
+                </div>
+                    );
+                })}
         </>
     );
 

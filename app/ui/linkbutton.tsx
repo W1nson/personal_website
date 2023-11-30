@@ -1,7 +1,7 @@
 import { Button } from '@/app/ui/button'; 
 import Image from 'next/image'; 
 import Link from 'next/link'; 
-import { SewingPinFilledIcon, EnvelopeClosedIcon, LinkedInLogoIcon,  GitHubLogoIcon, PersonIcon} from '@radix-ui/react-icons';
+import { SewingPinFilledIcon, EnvelopeClosedIcon, LinkedInLogoIcon,  GitHubLogoIcon, PersonIcon, FileTextIcon} from '@radix-ui/react-icons';
 
 const links = [
 	{ name: 'Fremont, CA', href: '', icon: SewingPinFilledIcon},
@@ -9,6 +9,7 @@ const links = [
 	{ name: 'LinkedIn', href: 'https://www.linkedin.com/in/winson-chen-75aab71b8/', icon: LinkedInLogoIcon},
 	{ name: 'Github', href: 'https://github.com/W1nson', icon: GitHubLogoIcon},
 	{ name: 'Google Scholar', href: 'https://scholar.google.com/citations?user=RhM7lloAAAAJ&hl=en', icon: PersonIcon},
+	{ name: 'CV', href: '/CV.pdf', icon: FileTextIcon},
   ];
 export default function LinkButtons() {
 

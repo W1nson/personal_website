@@ -29,7 +29,7 @@ export default function RootLayout({
             <div className='col-span-1 '>
               <SideBar/>
             </div>
-            <div className='col-span-6 pt-5'>
+            <div className='col-span-6 pt-4 pr-4'>
               {children}
             </div>
           </div>

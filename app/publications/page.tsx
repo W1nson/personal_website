@@ -11,7 +11,7 @@ export default async function Page() {
         <>
             {datas.map((data: Publication) => {
             return (
-                <div key={data.title}className='flex flex-col p-8'>
+                <div key={data.title}className='flex flex-col p-5'>
                     <Link 
                         key={data.title}
                         href={data.link}

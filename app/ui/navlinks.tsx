@@ -12,6 +12,7 @@ const links = [
   { name: 'Publications', href: '/publications',},
   { name: 'CV', href: '/CV'},
   { name: 'Tutoring', href: '/tutoring'},
+  { name: 'Signup', href: '/signup'}
 ];
 
 export default function NavLinks() {

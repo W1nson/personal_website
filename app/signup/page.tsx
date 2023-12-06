@@ -1,15 +1,36 @@
-
+'use client'
 // form 
 import { Button } from '@/app/ui/button';
 import { useFormState } from 'react-dom';
+import { signup } from '@/app/backend/api'; 
+
+// export async function createUser(	
+// 	prevState: string | undefined,
+// 	formData: FormData) { 
+
+// 	try {
+// 		await sql`
+// 		INSERT INTO invoices (customer_id, amount, status, date)
+// 		VALUES (${customerId}, ${amountInCents}, ${status}, ${date})`;
+// 	} catch (error) { 
+// 		return {
+// 			message: 'Database Error: Failed to Create Invoice.' 
+// 		}
+// 	}
+// }
+
 
 
 export default function Page(){
-	// const initialState = { message: null, errors: {} };
-	// const [state, dispatch] = useFormState(, initialState);
+	const initialState = { firstname: null, lastname: null, email: null, password: null};
+	const [state, action] = useFormState(signup, initialState);
+	// console.log(state.email)
+	// const signup = () => {
+
+	// }
 	return(
 		<div className='flex justify-center p-16 text-black'>
-			<form className='flex flex-col items-center w-[50vw] h-[70vh] bg-sky-100 rounded-lg '>
+			<form action={action} className='flex flex-col items-center w-[50vw] h-[70vh] bg-sky-100 rounded-lg '>
 		
 				<h1>Sign Up</h1>
 				<span>First Name</span>
@@ -52,7 +73,7 @@ export default function Page(){
 
 				<Button className='w-[7vw] text-center items-center'>Sign Up</Button>
 			</form>
-
+				{/* {state} */}
 		</div>
 
 	);

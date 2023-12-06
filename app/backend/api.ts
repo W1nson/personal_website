@@ -3,7 +3,14 @@
 import { z } from 'zod'; 
 import { sql } from '@vercel/postgres'; 
 
-
+export async function signup(
+	prevState: string | undefined,
+	formData: FormData
+	) {
+	// console.log(prevState);
+	console.log(formData);
+	return formData;
+}
 
 export async function createUser() { 
 

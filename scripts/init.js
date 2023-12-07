@@ -1,7 +1,9 @@
 const { db } = require('@vercel/postgres');
-const { students } = require('../app/backend/test.js');
+const { students } = require('@/app/backend/test.js');
 const bcrypt = require('bcrypt'); 
 const crypto = require('crypto');
+
+const saltRounds = 10; 
 
 async function initialTable(client) {
 	try { 
@@ -10,9 +12,10 @@ async function initialTable(client) {
 		const createTable = await client.sql`
 			CREATE TABLE IF NOT EXISTS students (
 				id UUID DEFAULT uuid_generate_v4() PRIMARY KEY, 
-				name VARCHAR(255) NOT NULL, 
+				firstname VARCHAR(255) NOT NULL, 
+				lastname VARCHAR(255) NOT NULL, 
 				email TEXT NOT NULL UNIQUE, 
-				password TEXT NOT NULL 
+				password TEXT NOT NULL
 			);
 		`;
 
@@ -23,10 +26,10 @@ async function initialTable(client) {
 		const insertedStudents = await Promise.all( 
 			students.map(async (student) => {
 				const uuid = await crypto.randomUUID(); 
-				const hashedPassword = await bcrypt.hash(student.password, 10);
+				const hashedPassword = await bcrypt.hash(student.password);
 				return client.sql`
-				INSERT INTO students (id, name, email, password)
-				VALUES (${uuid}, ${student.name}, ${student.email}, ${hashedPassword})
+				INSERT INTO students (id, firstname, lastname, email, password)
+				VALUES (${uuid}, ${student.firstname}, ${student.lastname}, ${student.email}, ${hashedPassword})
 				ON CONFLICT (id) DO NOTHING;`;
 			}),
 		);
@@ -43,11 +46,31 @@ async function initialTable(client) {
 	}
 };
 
+async function checkPassword(client, email, password) {
+	try {
+
+		const row = await client.sql`
+			SELECT *
+			FROM students 
+			WHERE email = ${email};`;
+
+		const user = row.rows[0];
+		const passwordsMatch = await bcrypt.compare(password, user.password); 
+		console.log(passwordsMatch);
+	}
+	catch(error) {
+		console.error('Error checking password');
+		throw error; 
+	}
+	
+
+}
+
 async function clearTable(client) {
 
 	try{
 		const deleteTable = await client.sql`
-			DELETE FROM students;
+			DROP TABLE students;
 		`;
 		console.log('deleting users');
 		return {
@@ -62,10 +85,12 @@ async function clearTable(client) {
 };
 
 async function main() {
-	console.log(students); 
+	// console.log(students); 
 	const client = await db.connect(); 
-	// await initialTable(client); 
-	await clearTable(client); 
+	await initialTable(client); 
+	await checkPassword(client, "winsonchen108@gmail.com", '19991229Wn')
+	// await clearTable(client);
+
 }
 
 main().catch((err) => {

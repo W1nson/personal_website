@@ -1,5 +1,5 @@
 const { db } = require('@vercel/postgres');
-const { students } = require('@/app/backend/test.js');
+const { students } = require('../app/backend/test.js');
 const bcrypt = require('bcrypt'); 
 const crypto = require('crypto');
 
@@ -13,23 +13,27 @@ async function initialTable(client) {
 			CREATE TABLE IF NOT EXISTS students (
 				id UUID DEFAULT uuid_generate_v4() PRIMARY KEY, 
 				firstname VARCHAR(255) NOT NULL, 
-				lastname VARCHAR(255) NOT NULL, 
+				lastname VARCHAR(255) NOT NULL,
+				username VARCHAR(255) NOT NULL, 
+				phone VARCHAR(255) NOT NULL,  
 				email TEXT NOT NULL UNIQUE, 
-				password TEXT NOT NULL
+				password TEXT NOT NULL, 
+				date DATE NOT NULL
 			);
 		`;
 
 		console.log(`Created "students" table`);
+		const date = new Date().toISOString().split('T')[0];
 
 	    // console.log(students)
 		// insert data into students table 
 		const insertedStudents = await Promise.all( 
 			students.map(async (student) => {
 				const uuid = await crypto.randomUUID(); 
-				const hashedPassword = await bcrypt.hash(student.password);
+				const hashedPassword = await bcrypt.hash(student.password, saltRounds);
 				return client.sql`
-				INSERT INTO students (id, firstname, lastname, email, password)
-				VALUES (${uuid}, ${student.firstname}, ${student.lastname}, ${student.email}, ${hashedPassword})
+				INSERT INTO students (id, firstname, lastname, username, phone, email, password, date)
+				VALUES (${uuid}, ${student.firstname}, ${student.lastname}, ${student.username},${student.phone},${student.email}, ${hashedPassword}, ${date})
 				ON CONFLICT (id) DO NOTHING;`;
 			}),
 		);
@@ -85,10 +89,10 @@ async function clearTable(client) {
 };
 
 async function main() {
-	// console.log(students); 
+	console.log(students); 
 	const client = await db.connect(); 
 	await initialTable(client); 
-	await checkPassword(client, "winsonchen108@gmail.com", '19991229Wn')
+	// await checkPassword(client, "winsonchen108@gmail.com", '19991229Wn')
 	// await clearTable(client);
 
 }
